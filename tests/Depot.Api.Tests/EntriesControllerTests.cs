@@ -11,12 +11,12 @@ using Xunit;
 
 namespace Depot.Api.Tests
 {
-    public class EventsControllerTests
+    public class EntriesControllerTests
     {
         protected readonly TestServer Server;
         protected readonly HttpClient Client;
 
-        public EventsControllerTests()
+        public EntriesControllerTests()
         {
             Server = new TestServer(new WebHostBuilder()
                           .UseStartup<Startup>());
@@ -39,7 +39,6 @@ namespace Depot.Api.Tests
             var response = await Client.GetAsync($"entries/{key}");
             response.StatusCode.ShouldBeEquivalentTo(HttpStatusCode.NotFound);
         }
- 
 
         [Fact]
         public async Task given_unique_key_entry_should_be_created()
