@@ -16,7 +16,7 @@ namespace Depot.Api.Services
         public EntryService(IOptions<AppOptions> appOptions, 
             ILogger<EntryService> logger)
         {
-            if(appOptions.Value.SeedData)
+            if(appOptions.Value.SeedData && !_entries.Any())
             {
                 _entries.Add(new Entry("k1", "entry1"));
                 _entries.Add(new Entry("k2", "entry2"));
